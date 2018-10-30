@@ -1,28 +1,25 @@
-package rucha_tfidf;
+package wiki_tfidf;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by rucha on 4/20/18.
- */
-public class WikiWordInfoUpdater implements Comparable<WikiWordInfoUpdater> {
-    private ArrayList<WikiWordInfoEntry> entries = new ArrayList<WikiWordInfoEntry>();
+public class WordInformationUpdater implements Comparable<WordInformationUpdater> {
+    private ArrayList<WordInformationEntry> entries = new ArrayList<WordInformationEntry>();
 
     public void reset() {
         entries.clear();
     }
 
-    public void add(WikiWordInfo info) {
+    public void add(WordInformation info) {
         Collections.addAll(entries, info.getEntries());
     }
 
-    public void update(WikiWordInfo info) {
-        WikiWordInfoEntry[] entriesArray = entries.toArray(new WikiWordInfoEntry[entries.size()]);
+    public void update(WordInformation info) {
+        WordInformationEntry[] entriesArray = entries.toArray(new WordInformationEntry[entries.size()]);
         info.set(entriesArray);
     }
 
-    public int compareTo(WikiWordInfoUpdater o) {
+    public int compareTo(WordInformationUpdater o) {
         Integer s1 = entries.size();
         Integer s2 = o.entries.size();
         return s1.compareTo(s2);

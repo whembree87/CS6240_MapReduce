@@ -1,4 +1,4 @@
-package rucha_tfidf;
+package wiki_tfidf;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -16,16 +16,13 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-/**
- * Created by rucha on 4/20/18.
- */
-public class WikiNumberOfDocs {
+public class NumberOfDocs {
     public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
-        Job job = new Job(conf, "WikiNumberOfDocs");
+        Job job = new Job(conf, "NumberOfDocs");
 
-        job.setJarByClass(WikiNumberOfDocs.class);
+        job.setJarByClass(NumberOfDocs.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

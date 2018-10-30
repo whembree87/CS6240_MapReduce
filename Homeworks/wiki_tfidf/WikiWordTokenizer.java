@@ -1,12 +1,9 @@
-package rucha_tfidf;
+package wiki_tfidf;
 
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by rucha on 4/20/18.
- */
 public class WikiWordTokenizer implements Enumeration<String> {
     public static final String[] STOP_WORDS = new String[]{"this", "the", "that",
             "are", "was", "will", "and", "not", "all"};
@@ -40,7 +37,8 @@ public class WikiWordTokenizer implements Enumeration<String> {
                     Character.isDigit(nextWord.charAt(0)) ||
                     STOP_WORDS_SET.contains(nextWord) ||
                     nextWord.contains("_") ||
-                    nextWord.length() < 3) {
+                    nextWord.length() < 3 ||
+                    nextWord.matches(".*\\d+.*")) {
                 continue;
             }
             break;
